@@ -28,6 +28,9 @@ namespace ContosoBankBot
 
             if (activity.Type == ActivityTypes.Message)
             {
+
+                var oer_url = "https://openexchangerates.org/api/latest.json?app_id=d8c2e65337e648dfb4469a9a7068aad5";
+                var currencyRates = download_serialized_json_data<CurrencyRates>(oer_url);
                 StateClient sc = activity.GetStateClient();
                 BotData userData = sc.BotState.GetPrivateConversationData(activity.ChannelId, activity.Conversation.Id, activity.From.Id);
 
@@ -317,6 +320,11 @@ namespace ContosoBankBot
 
                 else if (userInput.ToLower().ToString().Equals("conversion help"))
                 {
+
+                    //var currencyRates = download_serialized_json_data<CurrencyRates>(oer_url);
+                    strReply.Append("** Disclaimer and License Information **\n\n");
+                    strReply.Append(currencyRates.Disclaimer);
+                    strReply.Append(currencyRates.License);
                     strReply.Append("In order to use currency conversion service, Please follow the following format\n\n");
                     strReply.Append("convert NZD(from) 10000(money you have) to AUD(desired currency)\n\n");
                     strReply.Append("Please ignore ( ) when you actually type. Thank you!");
@@ -346,8 +354,8 @@ namespace ContosoBankBot
                         string curr_from = data[1].ToUpper();
                         string curr_to = data[4].ToUpper();
 
-                        var url = "https://openexchangerates.org/api/latest.json?app_id=d8c2e65337e648dfb4469a9a7068aad5";
-                        var currencyRates = download_serialized_json_data<CurrencyRates>(url);
+                        //var url = "https://openexchangerates.org/api/latest.json?app_id=d8c2e65337e648dfb4469a9a7068aad5";
+                        //var currencyRates = download_serialized_json_data<CurrencyRates>(oer_url);
 
                         if (currencyRates.Rates.TryGetValue(curr_from, out fromRate))
                         {
