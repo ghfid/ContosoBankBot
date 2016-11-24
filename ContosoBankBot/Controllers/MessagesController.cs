@@ -58,6 +58,10 @@ namespace ContosoBankBot
                     userData.SetProperty<string>("user_name", activity.Text);
                 }
 
+                else if(userNameTemp.Equals(userData.GetProperty<string>("user_name")) && (userInput.ToLower().ToString().Contains("hello") || userInput.ToLower().ToString().Contains("hi")))
+                {
+                    strReply.Append("Hello again! Please enter contoso for more info ! THanks :)");
+                }
 
                 //}
 
