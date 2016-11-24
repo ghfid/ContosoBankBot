@@ -155,7 +155,7 @@ namespace ContosoBankBot
                     //strReply.Append("Please type \"show account ACC_NUMBER ACC_PASSWORD\" to log into your account");
                 }
 
-                else if ((userInput.ToLower().Contains("update account")) && (userInput.Length > 15))
+                else if ((userInput.ToLower().Contains("update password")) && (userInput.Length > 15))
                 {
                     string line = userInput.ToLower();
                     string[] strSplit = line.Split(' ');
