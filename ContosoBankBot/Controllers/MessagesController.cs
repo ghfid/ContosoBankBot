@@ -360,8 +360,8 @@ namespace ContosoBankBot
 
                         strReply.Append(currencyRates.Disclaimer);
                         strReply.Append(currencyRates.License);
-                        strReply.Append("--------------------------------\n\n\n");
-                        strReply.Append($"Your converted money is {decimal.Round(moneyToConvert, 2)} in {curr_to.ToUpper()}");
+                        strReply.Append("\n\n--------------------------------\n\n\n");
+                        strReply.Append($"Your converted money is [{decimal.Round(moneyToConvert, 2)}] in [{curr_to.ToUpper()}]");
 
                     }
                     else
