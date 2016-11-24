@@ -63,7 +63,7 @@ namespace ContosoBankBot
 
                 else if(userNameTemp.Equals(userData.GetProperty<string>("user_name")) && (userInput.ToLower().ToString().Contains("hello") || userInput.ToLower().ToString().Contains("hi")))
                 {
-                    strReply.Append("Hello again! Please enter contoso for more info ! Thanks :)");
+                    strReply.Append($"Hello again {userData.GetProperty<string>("user_name")}! Please enter contoso for more info ! Thanks :)");
                 }
 
                 //}
