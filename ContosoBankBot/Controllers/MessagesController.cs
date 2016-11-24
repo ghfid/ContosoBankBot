@@ -172,6 +172,7 @@ namespace ContosoBankBot
                         {
                             a.Password = strSplit[4].ToString();
                             await AzureManager.AzureManagerInstance.UpdateAccount(a);
+                            strReply.Append("Password successfully updated! Thanks");
                             isCorrect = true;
                         }
 
